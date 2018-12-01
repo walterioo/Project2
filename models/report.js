@@ -16,9 +16,10 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     phone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       validation: {
+        len: [1,20],
         notEmpty: true
       }
     },
@@ -49,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
       validation: {
         notEmpty: true
       }
+    }, 
+    comments: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
     status: DataTypes.BOOLEAN
   }, {});

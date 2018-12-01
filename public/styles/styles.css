@@ -1,3 +1,9 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.container {
+  max-width: 960px;
+}
+
+.lh-condensed { line-height: 1.25; }

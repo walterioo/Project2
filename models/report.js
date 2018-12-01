@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Report = sequelize.define('Report', {
+  const Report = sequelize.define("Report", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [10,13]
       }
     },
-    image_url: {
+    imageUrl: {
       type: DataTypes.STRING,
       allowNull: false,
       validation: {
@@ -57,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     status: DataTypes.BOOLEAN
   }, {});
-  Report.associate = function(models) {
+  Report.associate = function() {
     // associations can be defined here
   };
   return Report;

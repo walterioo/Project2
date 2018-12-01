@@ -4,9 +4,9 @@ module.exports = function(app) {
   // Get all examples
   app.get("/api/get", function(req, res) {
     db.Report.findAll({}).then(function(dbReport) {
-      var hbsObject = {
-        examples: dbReport
-      };
+      // var hbsObject = {
+      //   examples: dbReport
+      // };
       //res.render("index", hbsObject);
       res.json(dbReport);
     });
@@ -30,15 +30,15 @@ module.exports = function(app) {
 
   app.put("/api/admin/status/:id", (req, res) => {
     db.Report.update({status: true},{where: {id:req.params.id}})
-      .then((dbReport) => {
+      .then(() => {
         res.redirect("/admin");
-      })
-  })
+      });
+  });
 
   app.put("/api/admin/comment/:id", (req, res) => {
     db.Report.update({comments: req.body.comments},{where: {id:req.params.id}})
-      .then((dbReport) => {
+      .then(() => {
         res.redirect("/admin");
-      })
-  })
+      });
+  });
 };

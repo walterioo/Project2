@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validation: {
-        len: [1,20],
+        len: [7,20],
         notEmpty: true
       }
     },
@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
       validation: {
-        len: [10,13]
+        notEmpty: true
       }
     },
     imageUrl: {

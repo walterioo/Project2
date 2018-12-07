@@ -64,9 +64,26 @@ describe("/api/get", function() {
 
   it("should find all examples", function(done) {
     // Add some examples to the db to test with
-    db.Example.bulkCreate([
-      { name: "First Example", description: "First Description" },
-      { name: "Second Example", description: "Second Description" }
+    db.Report.bulkCreate([
+      { name: "Alma Sotelo",
+        email: "alma@gmail.com",
+        phone: "+52(542)123466989",
+        address: "Avenida 5, Col Juarez, Navojoa, Sonora",
+        category: "abandono",
+        report: "La vecina golpea a su perro Ayuda!!!",
+        imageUrl: "image.png",
+        status : false 
+      },
+      { 
+        name: "Alma Sotelo",
+        email: "alma@gmail.com",
+        phone: "+52(542)123466989",
+        address: "Avenida 5, Col Juarez, Navojoa, Sonora",
+        category: "abandono",
+        report: "La vecina golpea a su perro Ayuda!!!",
+        imageUrl: "image.png",
+        status : false
+      }
     ]).then(function() {
       // Request the route that returns all examples
       request.get("/api/get").end(function(err, res) {
@@ -85,11 +102,25 @@ describe("/api/get", function() {
 
         expect(responseBody[0])
           .to.be.an("object")
-          .that.includes({ text: "First Example", description: "First Description" });
+          .that.includes({ name: "Alma Sotelo",
+            email: "alma@gmail.com",
+            phone: "+52(542)123466989",
+            address: "Avenida 5, Col Juarez, Navojoa, Sonora",
+            category: "abandono",
+            report: "La vecina golpea a su perro Ayuda!!!",
+            imageUrl: "image.png",
+            status : false});
 
         expect(responseBody[1])
           .to.be.an("object")
-          .that.includes({ text: "Second Example", description: "Second Description" });
+          .that.includes({ name: "Alma Sotelo",
+            email: "alma@gmail.com",
+            phone: "+52(542)123466989",
+            address: "Avenida 5, Col Juarez, Navojoa, Sonora",
+            category: "abandono",
+            report: "La vecina golpea a su perro Ayuda!!!",
+            imageUrl: "image.png",
+            status : false });
 
         // The `done` function is used to end any asynchronous tests
         done();

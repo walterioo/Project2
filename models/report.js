@@ -1,7 +1,7 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => { //bringing in the connecion info of our database and also DataType
   const Report = sequelize.define("Report", {
-    name: { //the .define method is used to define meppings between a model and a table.
+    name: { //the .define method is used to define meppings between a model and a table
       type: DataTypes.STRING,
       allowNull: false,
       validation: {

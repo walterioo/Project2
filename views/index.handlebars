@@ -143,6 +143,19 @@
             </div>  
           </form>
         </div>
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="mb-3">Examples</h4>
+          <ul id="example-list" class="list-group">
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+          </ul>
+        </div>
+        </div>
+        
       </div>
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2017-2018 Sperro</p>

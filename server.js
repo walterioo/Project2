@@ -3,7 +3,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
-
+var routes = require("./routes/apiRoutes.js");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -22,7 +22,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(routes);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
@@ -30,7 +30,7 @@ var syncOptions = { force: false };
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
+  syncOptions.force = true;//we are saying "DROP TABLE IF EXISTS"
 }
 
 // Starting the server, syncing our models ------------------------------------/

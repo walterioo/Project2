@@ -1,30 +1,28 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/get", function(req, res) {
-    db.Report.findAll({}).then(function(dbReport) {
-      // var hbsObject = {
-      //   examples: dbReport
-      // };
+  // Get all reports
+  app.get("/api/get", function(res) {
+    db.Reports.findAll({}).then(function(dbReports) {
+      //var hbsObject = {reports: //dbReports};
       //res.render("index", hbsObject);
-      res.json(dbReport);
+      res.json(dbReports);
     });
   });
 
   // Create a new example
   app.post("/api/post", function(req, res) {
     console.log(req.body);
-    db.Report.create(req.body).then(function(dbReport) {
-      res.json(dbReport);
+    db.Report.create(req.body).then(function(dbReports) {
+      res.json(dbReports);
     });
   });
 
   // Delete an example by id
   app.delete("/api/admin/:id", function(req, res) {
     db.Report.destroy({ where: { id: req.params.id }})
-      .then((dbReport) => {
-        res.json(dbReport);
+      .then((dbReports) => {
+        res.json(dbReports);
       });
   });
 

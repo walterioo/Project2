@@ -1,7 +1,7 @@
 "use strict";
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => { //bringing in the coneccion info of our database and also DataType
   const Report = sequelize.define("Report", {
-    name: {
+    name: { //the .define method is used to define meppings between a model and a table.
       type: DataTypes.STRING,
       allowNull: false,
       validation: {
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validation: {
-        len: [1,20],
+        len: [1,20], //at least have to have 1 and have tohave not more than 20
         notEmpty: true
       }
     },
@@ -60,5 +60,5 @@ module.exports = (sequelize, DataTypes) => {
   Report.associate = function() {
     // associations can be defined here
   };
-  return Report;
+  return Report; //returning it to be able when another file calls it.
 };

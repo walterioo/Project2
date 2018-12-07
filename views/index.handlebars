@@ -7,11 +7,11 @@
       </div>
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
-          <h4 class="mb-3">Examples</h4>
-          <ul id="example-list" class="list-group">
-          {{#each examples}}
+          <h4 class="mb-3">Report</h4>
+          <ul id="report-list" class="list-group">
+          {{#each reports}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
+            <a href="report/{{this.id}}">{{this.text}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Direccion del Reporte</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate action="/api/post" method="POST">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">Nombre</label>
@@ -40,7 +40,7 @@
               <label for="email">Email <span class="text-muted">(Opcional)</span></label>
               <input type="email" class="form-control" id="email" placeholder="you@example.com">
               <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+                Please enter a valid email address.
               </div>
             </div>
             <div class="mb-3">
@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="address2">Cruzamiento<span class="text-muted">(Optional)</span></label>
+              <label for="address2">Interseccion<span class="text-muted">(Optional)</span></label>
               <input type="text" class="form-control" id="address2">
             </div>
             <div class="row">

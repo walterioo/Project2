@@ -51,16 +51,26 @@
 }
 
 #wellcome  {
-  height: 50px;
+  height: 200px;
   width: 400px;
   padding-bottom: 100px;
 }
 
 #btnLogin {
   background-color: rgb(26, 12, 15);
+  border-color:  rgb(73, 69, 69);
 }
 #btnClose {
-  background-color: rgb(73, 69, 69);
+  background-color: rgb(102, 98, 98);
+  border-color: rgb(26, 12, 15);
+}
+.btnReport{
+  background-color: rgb(54, 52, 53);
+  border-color:  rgb(73, 69, 69);
+}
+.btnReport:hover{
+  background-color: rgb(26, 12, 15);
+  border-color:  rgb(73, 69, 69);
 }
 
 

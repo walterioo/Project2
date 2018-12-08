@@ -10,9 +10,11 @@ var db = require("../models");
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
-    usernameField: "email"
+    usernameField: "email",
+    passwordField: "password",
+    passReqToCallback: true
   },
-  function(email, password, done) {
+  function(req,email, password, done) {
     // When a user tries to sign in this code runs
     db.User.findOne({
       where: {
@@ -21,15 +23,11 @@ passport.use(new LocalStrategy(
     }).then(function(dbUser) {
       // If there's no user with the given email
       if (!dbUser) {
-        return done(null, false, {
-          message: "Incorrect email."
-        });
+        return done(null, false, req.flash("loginMessage", "Email not found"));
       }
       // If there is a user with the given email, but the password the user gives us is incorrect
       else if (!dbUser.validPassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
-        });
+        return done(null, false, req.flash("loginMessage", "Wrong password!"));
       }
       // If none of the above, return the user
       return done(null, dbUser);

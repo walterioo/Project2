@@ -33,7 +33,10 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form action="/api/login" method="POST">
+                    {{#if message}}
+                    <div class="text-alert">{{this}}</div>
+                    {{/if}}
+                    <form action="/login" method="POST">
                       <div class="form-group">
                         <label for="email"></label>
                         <input class="form-control" placeholder="Email" type="text" id="inputUserName" name="email" />
@@ -130,7 +133,7 @@
             </div>
           </form>
         </div>
-        <div class="col-md-4 order-md-2 mb-4">
+        {{!-- <div class="col-md-4 order-md-2 mb-4">
           <h4 class="mb-3">Examples</h4>
           <ul id="example-list" class="list-group">
             {{#each examples}}
@@ -140,7 +143,7 @@
             </li>
             {{/each}}
           </ul>
-        </div>
+        </div> --}}
       </div>
 
     </div>

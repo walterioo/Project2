@@ -3,7 +3,8 @@ var express = require("express"),
   exphbs = require("express-handlebars"),
   db = require("./models"),
   passport = require("./config/passport"),
-  session = require("express-session");
+  session = require("express-session"),
+  flash = require("connect-flash");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -15,6 +16,7 @@ app.use(express.static("public"));
 app.use(session({ secret: "bestdogappever" }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 // Handlebars
 app.engine(

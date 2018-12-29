@@ -36,16 +36,20 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
+      console.log("logged!");
       res.redirect("/admin");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("index");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be 
   //redirected to the signup page
   app.get("/admin", isAuth, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/admin.html"));
+    db.Report.findAll({}).then(function(dbReport) {
+      res.render("admin", dbReport);
+    });
+    // res.sendFile(path.join(__dirname, "../public/admin.html"));
   });
 
   app.get("/register", function(req, res){

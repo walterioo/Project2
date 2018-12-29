@@ -1,7 +1,11 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => { //bringing in the connecion info of our database and also DataType
   const Report = sequelize.define("Report", {
+
     firstName: {
+
+  
+
       type: DataTypes.STRING,
       allowNull: false
      

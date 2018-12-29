@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+
     "password": "root",
+
+   
+
     "database": "project_db",
     "host": "localhost",
     "port": 8889,

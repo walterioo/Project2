@@ -1,12 +1,18 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => { //bringing in the connecion info of our database and also DataType
   const Report = sequelize.define("Report", {
-    name: { //the .define method is used to define meppings between a model and a table
+
+    firstName: {
+
+  
+
       type: DataTypes.STRING,
-      allowNull: false,
-      validation: {
-        notEmpty: true
-      }
+      allowNull: false
+     
+    },
+    lastName: {
+      type:DataTypes.STRING,
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
@@ -30,28 +36,30 @@ module.exports = (sequelize, DataTypes) => { //bringing in the connecion info of
         notEmpty: true
       }
     },
+    address2: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validation: {
+        notEmpty: true
+      }
+    },
+
     category: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validation: {
         notEmpty: true
       }
     },
-    report: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validation: {
-        notEmpty: true
-      }
-    },
+   
     imageUrl: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validation: {
         notEmpty: true
       }
     }, 
-    comments: {
+    comment: {
       type: DataTypes.TEXT,
       allowNull: true,
     },

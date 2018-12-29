@@ -52,6 +52,10 @@ module.exports = function(app) {
     // res.sendFile(path.join(__dirname, "../public/admin.html"));
   });
 
+  app.get("/register", function(req, res){
+    res.render("register");
+  })
+
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

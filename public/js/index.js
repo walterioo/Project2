@@ -64,18 +64,21 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    firstName: $('#firstName').val(),
+    lastName: $('#lastName').val(),
+    phone: $('#phone').val(),
+    email: $('#email').val(),
+    address: $('#address').val(),
+    address2: $('#address2').val(),
+    comment: $('#comment').val()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+ 
 
-  API.saveExample(example).then(function() {
-    console.log("API.saveExample", API.saveExample(example));
-    refreshExamples();
+  API.saveExample(example).then(function(data) {
+    console.log(data);
+   // console.log("API.saveExample", API.saveExample(example));
+    //refreshExamples();
   });
 
   $exampleText.val("");
@@ -93,7 +96,27 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
+$(document).on('click', '#regUser', function(){
+  alert("click works");
+  var user = {
+    email: $('#email').val(),
+    password: $('#password').val()
+  };
 
+  $.post('/api/signup', user, function(data){
+    console.log(data, "user")
+  });
+})
+$(document).on('click', "#btnLogin", function(){
+  alert("login works")
+  var user = {
+    email: $('#inputUserName'),
+    password: $('#inputPassword')
+  }
+  $.post('/api/login', user, function(data){
+    console.log(data);
+  })
+})
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);

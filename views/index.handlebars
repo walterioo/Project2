@@ -22,7 +22,7 @@
             data-target="#loginModal" data-toggle="modal">Login</a>
         </div>
       </nav>
-      <!-- Modal seccion starts here -->  
+      <!-- Modal seccion starts here -->
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
@@ -40,19 +40,22 @@
                     <form>
                       <div class="form-group">
                         <label for="inputUserName"></label>
-                        <input class="form-control" placeholder="Username"
-                          type="text" id="inputUserName" />
+                        <input class="form-control" placeholder="Username" type="text"
+                          id="inputUserName" />
                       </div>
                       <div class="form-group">
                         <label for="inputPassword"></label>
-                        <input class="form-control" placeholder="Password"
-                          type="password" id="inputPassword" />
+                        <input class="form-control" placeholder="Password" type="password"
+                          id="inputPassword" />
                       </div>
+                      <a href="/register">Register</a>
                     </form>
                   </div>
                   <div class="modal-footer">
+                    
                     <button id="btnLogin" type="submit" class="btn btn-primary">Login</button>
-                    <button id="btnClose" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button id="btnClose" type="button" class="btn btn-primary"
+                      data-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
@@ -60,106 +63,95 @@
           </div>
         </div>
       </div>
-      <!-- Modal seccion ends here --> 
+      <!--  Modal seccion ends here -->
       <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <img src="https://files.slack.com/files-pri/TAXHPJA0Z-FEJ7VC542/2.jpg"
+        <img src="img/2.jpg"
           class="img-fluid" alt="Responsive image" style="background-size: cover;">
         <div class="py-5 text-center">
-          <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg"
-            alt="" width="72" height="72">
-          <div id="wellcome">  
-          <p class="lead">Gracias por tu participacion en la lucha por el
-            bienestar del "mejor amigo del hombre".</p>
-          </div>  
+          <div id="wellcome">
+            <p class="lead">Gracias por tu participacion en la lucha por el
+              bienestar del "mejor amigo del hombre".</p><br>
+            <p class="lead">Nos dedicamos a atender situaciones de accidentes,
+              abandono, maltrato, u otros incidentes relacionado con los
+              perros ocurriendo dentro de los limites de la ciudad de Navojoa, Sonora y sus alrededores. </p>
+          </div>
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
       </div>
       <div class="row">
-        <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">Reporte</h4>
+        <div class="col-md-12 order-md-1">
+          <h4 class="mb-3">Reportalo!!
+          </h4>
           <form class="needs-validation" novalidate action="/api/post" method="POST">
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">Nombre</label>
+                <label for="firstName"></label>
                 <input type="text" class="form-control" id="firstName"
-                  placeholder="" value="" required>
+                  placeholder="Tu nombre" value="" required>
                 <div class="invalid-feedback">
                   Un nombre valido es requerido.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="lastName">Apellido</label>
+                <label for="lastName"></label>
                 <input type="text" class="form-control" id="lastName"
-                  placeholder="" value="" required>
+                  placeholder="Tu apellido" value="" required>
                 <div class="invalid-feedback">
                   Un apellido valido es requerido.
                 </div>
               </div>
             </div>
-            <div class="mb-3">
-              <label for="email">Email <span class="text-muted">(Opcional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">
-                Please enter a valid email address.
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="phone"></label>
+                <input type="text" class="form-control" id="phone"
+                  placeholder="Tu telefono" value="" required>
+                <div class="invalid-feedback">
+                  Un numero de telefono valido es requerido.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email"><span class="text-muted">(Opcional)</span></label>
+                <input type="email" class="form-control" id="email" placeholder="tu-correo@ejemplo.com"
+                  >
+                <div class="invalid-feedback">
+                  Un apellido valido es requerido.
+                </div>
               </div>
             </div>
+
             <div class="mb-3">
               <label for="address">Ubicacion del perro</label>
-              <input type="text" class="form-control" id="address" placeholder="1234 Main St"
+              <input type="text" class="form-control" id="address" placeholder="incluye calle, numero de casa, colonia y codigo postal si los sabes"
                 required>
               <div class="invalid-feedback">
                 Introduce la ubicacion del perro
               </div>
             </div>
             <div class="mb-3">
-              <label for="address2">Calles principales<span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2">
+              <label for="address2"><span class="text-muted">(Optional)</span></label>
+              <input placeholder="calles principales o alguna referencia" type="text" class="form-control" id="address2">
             </div>
-            <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="country">Pais</label>
-                <select class="custom-select d-block w-100" id="country"
-                  required>
-                  <option value="">Choose...</option>
-                  <option>United States</option>
-                  <option>Mexico</option>
-                  <option>Canada</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor escoja un pais valido.
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="state">Estado</label>
-                <select class="custom-select d-block w-100" id="state" required>
-                  <option value="">Choose...</option>
-                  <option>California</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor escoja un estado valido.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="zip">Codigo Postal</label>
-                <input type="text" class="form-control" id="zip" placeholder=""
-                  required>
-                <div class="invalid-feedback">
-                  Codigo Postal requerido.
-                </div>
-              </div>
-            </div>
-            <hr class="mb-4">
             <div class="form-group">
-              <h4 class="mb-3"><label for="exampleFormControlTextarea1">Cuentanos
-                  que paso Perro</label></h4>
-              <textarea class="form-control" id="exampleFormControlTextarea1"
-                rows="3"></textarea>
+              <h5 class="mb-3"><label for="comment">Cuentanos
+                  que pasa</label></h5>
+              <textarea class="form-control" id="comment"
+                rows="4"></textarea>
             </div>
-            <hr class="mb-4">
-            <button id="submit" class="btn btn-primary btn-lg btn-block" type="submit">Continuar</button>
+            <div>
+              <button id="submit" class="btn btn-primary btn-lg btn-block btnReport" type="submit">Continuar</button>
+            </div>  
           </form>
         </div>
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="mb-3">Examples</h4>
+          <ul id="example-list" class="list-group">
+          </ul>
+        </div>
+        </div>
+        
       </div>
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2017-2018 Sperro</p>
@@ -172,4 +164,3 @@
     </div>
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/js/index.js"></script>

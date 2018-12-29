@@ -1,10 +1,10 @@
-# Project Starter
+# Project 2   
 
-In this activity we will add the provided boilerplate to group project repos.
+# "SPERRO"
 
-## Instructions
+# DESCRIPTION
 
-* Only one member of each group should complete this activity while the others watch.
+* 
 
 * Copy the entire [Unsolved](Unsolved) folder to another location on your computers &mdash; wherever you would like your local copy of the group project to be.
 
